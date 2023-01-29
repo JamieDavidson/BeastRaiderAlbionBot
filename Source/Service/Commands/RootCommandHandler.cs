@@ -1,4 +1,5 @@
-﻿using Discord.WebSocket;
+﻿using BeastRaiderAlbionBot.AlbionApiClient;
+using Discord.WebSocket;
 
 namespace BeastRaiderAlbionBot.Service.Commands;
 
@@ -6,7 +7,7 @@ internal static class RootCommandHandler
 {
     private static readonly Dictionary<string, ICommandHandler> HandlerMap = new()
     {
-        { "player", new PlayerLookupCommandHandler() }
+        { "player", new PlayerLookupCommandHandler(new AlbionClient()) }
     };
     
     public static async Task HandleSlashCommand(SocketSlashCommand arg)

@@ -15,4 +15,8 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="7.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AlbionApiClient\BeastRaiderAlbionBot.AlbionApiClient.csproj" />
+  </ItemGroup>
+
 </Project>

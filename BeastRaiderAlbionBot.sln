@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{FCA3F1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeastRaiderAlbionBot.Service", "Source\Service\BeastRaiderAlbionBot.Service.csproj", "{764758F8-AF8C-46DF-87C7-4E9E5A2E5742}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeastRaiderAlbionBot.AlbionApiClient", "Source\AlbionApiClient\BeastRaiderAlbionBot.AlbionApiClient.csproj", "{B324CEFF-3CCC-428B-AF61-57543FA5F72B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,8 +22,13 @@ Global
 		{764758F8-AF8C-46DF-87C7-4E9E5A2E5742}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{764758F8-AF8C-46DF-87C7-4E9E5A2E5742}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{764758F8-AF8C-46DF-87C7-4E9E5A2E5742}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B324CEFF-3CCC-428B-AF61-57543FA5F72B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B324CEFF-3CCC-428B-AF61-57543FA5F72B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B324CEFF-3CCC-428B-AF61-57543FA5F72B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B324CEFF-3CCC-428B-AF61-57543FA5F72B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{764758F8-AF8C-46DF-87C7-4E9E5A2E5742} = {FCA3F13E-263B-42FC-99F6-FC8EAEB35FFD}
+		{B324CEFF-3CCC-428B-AF61-57543FA5F72B} = {FCA3F13E-263B-42FC-99F6-FC8EAEB35FFD}
 	EndGlobalSection
 EndGlobal
