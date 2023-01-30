@@ -30,4 +30,7 @@ internal sealed class PlayerJsonBinding
     
     [JsonProperty(Required = Required.Always)]
     public decimal FameRatio { get; set; }
+
+    [JsonProperty(Required = Required.Always)]
+    public PlayerLifetimeStatisticsJsonBinding LifetimeStatistics { get; set; }
 }

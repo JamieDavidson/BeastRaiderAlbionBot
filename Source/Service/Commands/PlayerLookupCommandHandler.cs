@@ -31,14 +31,23 @@ internal sealed class PlayerLookupCommandHandler : ICommandHandler
         {
             var player = await _albionClient.GetPlayer(match.Id);
 
+            var totalFame = player.KillFame +
+                            player.PvEFame +
+                            player.CraftingFame +
+                            player.GatheringFame;
+
             var embedBuilder = new EmbedBuilder()
                 .WithTitle($"Player information for {match.Name}")
                 .WithColor(Color.Green)
                 .WithFields(new[]
                 {
-                    new EmbedFieldBuilder().WithName("Kill fame").WithValue(player.KillFame).WithIsInline(true),
-                    new EmbedFieldBuilder().WithName("Death fame").WithValue(player.DeathFame).WithIsInline(true),
-                    new EmbedFieldBuilder().WithName("Fame ratio").WithValue(player.FameRatio).WithIsInline(true)
+                    new EmbedFieldBuilder().WithName("Total Fame").WithValue(totalFame.ToString("N0")).WithIsInline(false),
+                    new EmbedFieldBuilder().WithName("Kill fame").WithValue(player.KillFame.ToString("N0")).WithIsInline(true),
+                    new EmbedFieldBuilder().WithName("Death fame").WithValue(player.DeathFame.ToString("N0")).WithIsInline(true),
+                    new EmbedFieldBuilder().WithName("Fame ratio").WithValue(player.FameRatio).WithIsInline(true),
+                    new EmbedFieldBuilder().WithName("PvE Fame").WithValue(player.PvEFame.ToString("N0")).WithIsInline(true),
+                    new EmbedFieldBuilder().WithName("Gathering Fame").WithValue(player.GatheringFame.ToString("N0")).WithIsInline(true),
+                    new EmbedFieldBuilder().WithName("Crafting Fame").WithValue(player.CraftingFame.ToString("N0")).WithIsInline(true)
                 });
             
             await socketSlashCommand.RespondAsync(embed: embedBuilder.Build());

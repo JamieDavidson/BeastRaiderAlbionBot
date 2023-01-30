@@ -83,7 +83,10 @@ public sealed class AlbionClient : IAlbionClient
             binding.AllianceTag,
             binding.KillFame ?? 0,
             binding.DeathFame ?? 0,
-            binding.FameRatio);
+            binding.FameRatio,
+            binding.LifetimeStatistics.PvE.Total,
+            binding.LifetimeStatistics.Gathering.All.Total,
+            binding.LifetimeStatistics.Crafting.Total);
     }
 
     private static HttpClient CreateHttpClient()

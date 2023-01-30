@@ -9,4 +9,7 @@ public sealed record Player(
     string AllianceTag,
     long KillFame,
     long DeathFame,
-    decimal FameRatio);
+    decimal FameRatio,
+    long PvEFame,
+    long GatheringFame,
+    long CraftingFame);
