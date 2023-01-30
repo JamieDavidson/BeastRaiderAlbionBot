@@ -1,4 +1,5 @@
-﻿using BeastRaiderAlbionBot.Service;
+﻿using BeastRaiderAlbionBot.AlbionDataProjectClient;
+using BeastRaiderAlbionBot.Service;
 using BeastRaiderAlbionBot.Service.Commands;
 using Discord;
 using Discord.WebSocket;
@@ -21,7 +22,7 @@ internal sealed class Program
         
         await _discordClient.LoginAsync(TokenType.Bot, token);
         await _discordClient.StartAsync();
-
+        
         _discordClient.Ready += RegisterCommands.SetupSlashCommands;
         _discordClient.SlashCommandExecuted += RootCommandHandler.HandleSlashCommand;
         

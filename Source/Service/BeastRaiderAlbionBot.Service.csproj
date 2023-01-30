@@ -13,10 +13,13 @@
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="7.0.2" />
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="7.0.0" />
+    <PackageReference Include="Plotly.NET.CSharp" Version="0.8.0" />
+    <PackageReference Include="Plotly.NET.ImageExport" Version="3.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\AlbionApiClient\BeastRaiderAlbionBot.AlbionApiClient.csproj" />
+    <ProjectReference Include="..\AlbionDataProjectClient\BeastRaiderAlbionBot.AlbionDataProjectClient.csproj" />
   </ItemGroup>
 
 </Project>
