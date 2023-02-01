@@ -42,9 +42,7 @@ internal sealed class GoldLookupCommandHandler : ICommandHandler
             priceHistory = await _dataProjectClient.GetGoldPriceHistory();
         }
         
-        var graph = await _dataGrapher.GenerateGoldGraphAsync(priceHistory);
-
-        var content = graph.Split(',')[1];
-        await socketSlashCommand.Channel.SendFileAsync(new MemoryStream(Convert.FromBase64String(content)), "gold-graph.png");
+        var graph = _dataGrapher.GenerateGoldGraph(priceHistory);
+        await socketSlashCommand.Channel.SendFileAsync(new MemoryStream(Convert.FromBase64String(graph)), "gold-graph.png");
     }
 }

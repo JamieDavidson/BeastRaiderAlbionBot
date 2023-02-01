@@ -4,5 +4,5 @@ namespace BeastRaiderAlbionBot.Service.Graphing;
 
 internal interface IDataGrapher
 {
-    Task<string> GenerateGoldGraphAsync(GoldPriceHistory priceHistory);
+    string GenerateGoldGraph(GoldPriceHistory priceHistory);
 }
