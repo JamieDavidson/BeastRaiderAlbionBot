@@ -1,11 +1,6 @@
 ﻿using System.Drawing.Imaging;
-using System.Globalization;
 using BeastRaiderAlbionBot.AlbionDataProjectClient.Domain;
-using Plotly.NET;
-using Plotly.NET.CSharp;
-using Plotly.NET.ImageExport;
 using ScottPlot;
-using Chart = Plotly.NET.CSharp.Chart;
 
 namespace BeastRaiderAlbionBot.Service.Graphing;
 
