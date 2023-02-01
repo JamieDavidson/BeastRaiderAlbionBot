@@ -18,6 +18,9 @@ internal sealed class DataGrapher : IDataGrapher
 
         chart.AddScatter(xValues.Select(x => x.ToOADate()).ToArray(), yValues.Select(c => (double)c).ToArray());
         chart.XAxis.DateTimeFormat(true);
+        chart.XAxis.Label("Timestamp");
+        chart.YAxis.Label("Gold Price");
+        chart.Title($"Albion gold price over last {priceHistory.PricePoints.Count} hours");
         
         var bitmap = chart.Render();
         using var ms = new MemoryStream();

@@ -8,15 +8,20 @@ public sealed class DataProjectClient : IDataProjectClient
 {
     public async Task<GoldPriceHistory> GetGoldPriceHistory(long priceCount = 24)
     {
+        var history = await GetAsync<GoldPricePointJsonBinding[]>($"gold?count={priceCount}");
+
+        return new GoldPriceHistory(history.Select(ph => new GoldPricePoint(ph.Timestamp, ph.Price)));
+    }
+
+    private static async Task<T> GetAsync<T>(string path)
+    {
         using var httpClient = CreateHttpClient();
 
-        var response = await httpClient.GetAsync($"gold?count={priceCount}");
+        var response = await httpClient.GetAsync(path);
 
         var bodyJson = await response.Content.ReadAsStringAsync();
 
-        var history = JsonConvert.DeserializeObject<GoldPricePointJsonBinding[]>(bodyJson);
-
-        return new GoldPriceHistory(history.Select(ph => new GoldPricePoint(ph.Timestamp, ph.Price)));
+        return JsonConvert.DeserializeObject<T>(bodyJson);
     }
 
     private static HttpClient CreateHttpClient()
