@@ -1,6 +1,4 @@
-﻿using BeastRaiderAlbionBot.AlbionDataProjectClient;
-using BeastRaiderAlbionBot.Service;
-using BeastRaiderAlbionBot.Service.Commands;
+﻿using BeastRaiderAlbionBot.Service.Commands;
 using Discord;
 using Discord.WebSocket;
 using Microsoft.Extensions.Configuration;

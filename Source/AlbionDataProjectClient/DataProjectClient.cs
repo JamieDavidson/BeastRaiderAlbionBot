@@ -13,6 +13,24 @@ public sealed class DataProjectClient : IDataProjectClient
         return new GoldPriceHistory(history.Select(ph => new GoldPricePoint(ph.Timestamp, ph.Price)));
     }
 
+    public async Task<ItemPrice[]> GetItemPrices(IEnumerable<string> itemNames)
+    {
+        var itemPrices = await GetAsync<ItemPriceJsonBinding[]>($"prices/{string.Join(',', itemNames)}");
+
+        return itemPrices.Select(ToDomain).ToArray();
+    }
+
+    private static ItemPrice ToDomain(ItemPriceJsonBinding binding)
+    {
+        return new ItemPrice(
+            binding.ItemId,
+            binding.City,
+            (binding.MinimumSellPrice, binding.MinimumSellPriceDate),
+            (binding.MaximumSellPrice, binding.MaximumSellPriceDate),
+            (binding.MinimumBuyPrice, binding.MinimumBuyPriceDate),
+            (binding.MaximumBuyPrice, binding.MaximumBuyPriceDate));
+    }
+
     private static async Task<T> GetAsync<T>(string path)
     {
         using var httpClient = CreateHttpClient();
